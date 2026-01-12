@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from datetime import datetime
 
+@dataclass
 class Config:
     telegram_token: str
     vk_app_id: str # айди приложения, нужно для привязки приложения к боту
@@ -38,12 +39,12 @@ class Post:
     published_at = None
     created_at: datetime = None
 
+@dataclass
 class VKClient:
-    def __init__(self, config: Config):
-        self.config = config
-        self.vk_session = None
-        self.vk = None
-        self.upload = None
+    config = Config
+    vk_session = None
+    vk = None
+    upload = None
 
 
 class TelegramBot:
